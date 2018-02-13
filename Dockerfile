@@ -13,6 +13,7 @@ RUN yum install -y https://packages.erlang-solutions.com/erlang-solutions-${ERLA
 RUN yum install -y https://github.com/rabbitmq/rabbitmq-server/releases/download/v${RABBITMQ_VERSION}/rabbitmq-server-${RABBITMQ_VERSION}-1.el7.noarch.rpm && yum clean all
 
 # RabbitMQ setup
+ENV LANG=en_US.UTF8
 ENV RABBITMQ_LOGS=- RABBITMQ_SASL_LOGS=- HOME=/var/lib/rabbitmq
 RUN mkdir -p /var/lib/rabbitmq /etc/rabbitmq \
         && touch /etc/rabbitmq/rabbitmq.config \
